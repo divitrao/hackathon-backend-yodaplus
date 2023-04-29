@@ -1,0 +1,19 @@
+env
+db.sqlite3
+.env
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+*.log
+*.pot
+*.pyc
+__pycache__
+data/
+staticfiles/
+*.csv
+frontend/node_modules
+frontend/package-lock.json
+frontend/build
+# frontend/build
+# nginx
+frontend/src/esg_project_config.js
