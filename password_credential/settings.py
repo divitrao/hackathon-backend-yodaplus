@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-8w1jd=354(#18zd$jovc3a6!y=*tr2-72yk=8lq=fyud(hv!2#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.0.2.2','127.0.0.1']
 
 FERNET_KEY = os.environ.get('FERNET_KEY')
 
@@ -63,6 +63,7 @@ REST_FRAMEWORK = {
     # 'DEFAULT_FILTER_BACKENDS': [
     #     'django_filters.rest_framework.DjangoFilterBackend'
     # ],
+    'EXCEPTION_HANDLER': 'utils.exception_handler.custom_exception_handler'  ,
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny'
     ],
