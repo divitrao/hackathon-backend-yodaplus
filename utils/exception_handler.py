@@ -5,7 +5,7 @@ def custom_exception_handler(exc,context):
 
     if response is not None:
         response.data['errorCode'] = response.status_code
-        print(response.data)
+        print(response.data,"oioioioi")
 
         if response.data.get('password',None):
             response.data['errorMessage'] = 'password: ' + response.data.get('password')[0]

@@ -30,12 +30,10 @@ def get_or_none(model, select_related=[], **kwargs):
 
 def error_response(status, msg, data, *args, **kwargs):
     response = {
-        "status_code": status,
-        "status": "failure",
-        "detail": msg,
-        "data": data,
+        "errorCode": status,
+        "errorMessage": data,
     }
-    caller_func = kwargs.get("caller_func", None)
+    # caller_func = kwargs.get("caller_func", None)
     return Response(data=response, status=status)
 
 
@@ -49,13 +47,13 @@ def success_response(status, msg, data, *args, **kwargs):
     return Response(data=response, status=status)
 
 
-
 def encrypt(password):
-    key = bytes(settings.FERNET_KEY,'utf-8')
+    key = bytes(settings.FERNET_KEY, 'utf-8')
     f = Fernet(key)
-    return f.encrypt(bytes(password,'utf-8'))
+    return f.encrypt(bytes(password, 'utf-8'))
+
 
 def decrypt(password):
-    key = bytes(settings.FERNET_KEY,'utf-8')
+    key = bytes(settings.FERNET_KEY, 'utf-8')
     f = Fernet(key)
     return f.decrypt(password)
